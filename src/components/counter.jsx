@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 1, // toggle this to 0 or 1 to see changes
-    tags: ["tag1", "tag2", "tag3"],
+    tags: ["tag1", "tag2", "tag3"], // toggle this to [] or ["tag1", "tag2", "tag3"] to see changes
   };
 
   styles = {
@@ -17,11 +17,7 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button className="btn btn-warning">Increment</button>
-        <ul>
-          {this.state.tags.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        {this.renderList()}
       </div>
     );
   }
@@ -35,6 +31,21 @@ class Counter extends Component {
   formatCount() {
     const counter = this.state.count;
     return counter === 0 ? "Missing elements" : counter;
+  }
+
+  renderList() {
+    const arr = this.state.tags;
+    if (arr.length === 0) {
+      return <p>No elements available !!!.</p>;
+    } else {
+      return (
+        <ul>
+          {arr.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      );
+    }
   }
 }
 
