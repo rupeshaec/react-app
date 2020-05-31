@@ -56,6 +56,10 @@ class Counter extends Component {
     console.error(this); // this will throw error if we remove bind from constructor.
     // why 'this' is not available in this method. Since we called a reference to this method not actually called it.
     this.setState({ count: this.state.count + 1 });
+
+    let arr = this.state.tags;
+    arr.push("tag" + (arr.length + 1));
+    this.setState({ tags: arr });
   };
 }
 
