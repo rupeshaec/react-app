@@ -3,7 +3,6 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 0, // toggle this to 0 or 1 to see changes
-    tags: ["tag1", "tag2", "tag3"], // toggle this to [] or ["tag1", "tag2", "tag3"] to see changes
   };
 
   styles = {
@@ -22,7 +21,6 @@ class Counter extends Component {
         >
           Increment
         </button>
-        {this.renderList()}
       </div>
     );
   }
@@ -35,35 +33,8 @@ class Counter extends Component {
 
   formatCount() {
     const counter = this.state.count;
-    return counter === 0 ? "Missing elements" : counter;
+    return counter === 0 ? "0" : counter;
   }
-
-  renderList() {
-    const arr = this.state.tags;
-    if (arr.length === 0) {
-      return <p>No elements available !!!.</p>;
-    } else {
-      return (
-        <ul>
-          {arr.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
-      );
-    }
-  }
-
-  // handleIncrement = () => {
-  //   // notice the call to this method in onClick is not a method call. E.g. handleIncrement as oppose to handleIncrement()
-  //   console.error("Add more clicked");
-  //   console.error(this); // this will throw error if we remove bind from constructor.
-  //   // why 'this' is not available in this method. Since we called a reference to this method not actually called it.
-  //   this.setState({ count: this.state.count + 1 });
-
-  //   let arr = this.state.tags;
-  //   arr.push("tag" + (arr.length + 1));
-  //   this.setState({ tags: arr });
-  // };
 
   handleIncrement = (product) => {
     console.error("Product passed is ", product.id, product.name);
