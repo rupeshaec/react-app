@@ -6,12 +6,6 @@ class Counter extends Component {
     tags: ["tag1", "tag2", "tag3"], // toggle this to [] or ["tag1", "tag2", "tag3"] to see changes
   };
 
-  constructor() {
-    super(); // need to call super first to have access to this
-    console.error(this); // access to this is not possible due to call to super
-    this.handleIncrement = this.handleIncrement.bind(this); // bind this a function so that whenever it is called it has access to this.
-  }
-
   styles = {
     fontSize: "15px",
   };
@@ -56,12 +50,12 @@ class Counter extends Component {
     }
   }
 
-  handleIncrement() {
+  handleIncrement = () => {
     // notice the call to this method in onClick is not a method call. E.g. handleIncrement as oppose to handleIncrement()
     console.error("Add more clicked");
     console.error(this); // this will throw error if we remove bind from constructor.
     // why 'this' is not available in this method. Since we called a reference to this method not actually called it.
-  }
+  };
 }
 
 export default Counter;
