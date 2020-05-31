@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 0, // toggle this to 0 or 1 to see changes
+    count: this.props.count,
   };
 
   styles = {
@@ -10,6 +10,7 @@ class Counter extends Component {
   };
 
   render() {
+    console.error(this.props);
     return (
       <div>
         <span style={this.styles} className={this.setBadgeColor()}>
