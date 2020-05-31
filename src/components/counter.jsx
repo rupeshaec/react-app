@@ -13,6 +13,7 @@ class Counter extends Component {
     console.error(this.props);
     return (
       <div>
+        {this.props.children}
         <span style={this.styles} className={this.setBadgeColor()}>
           {this.formatCount()}
         </span>
