@@ -16,7 +16,9 @@ class Counter extends Component {
         <span style={this.styles} className={this.setBadgeColor()}>
           {this.formatCount()}
         </span>
-        <button className="btn btn-warning">Increment</button>
+        <button className="btn btn-warning" onClick={this.handleIncrement}>
+          Increment
+        </button>
         {this.renderList()}
       </div>
     );
@@ -46,6 +48,11 @@ class Counter extends Component {
         </ul>
       );
     }
+  }
+
+  handleIncrement() {
+    // notice the call to this method in onClick is not a method call. E.g. handleIncrement as oppose to handleIncrement()
+    console.error("Add more clicked");
   }
 }
 
