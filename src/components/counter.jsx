@@ -19,9 +19,15 @@ class Counter extends Component {
         </span>
         <button
           className="btn btn-warning"
-          onClick={() => this.handleIncrement({ id: 1, name: "Product A" })}
+          onClick={() => this.handleIncrement()}
         >
-          Increment
+          +
+        </button>
+        <button
+          onClick={() => this.handleDecrement()}
+          className="btn btn-danger m-2"
+        >
+          -
         </button>
       </div>
     );
@@ -38,11 +44,12 @@ class Counter extends Component {
     return counter === 0 ? "0" : counter;
   }
 
-  handleIncrement = (product) => {
-    console.error("Product passed is ", product.id, product.name);
+  handleIncrement = () => {
     this.setState({ count: this.state.count + 1 });
-    // () => this.handleIncrement({ id: 1, name: "Product A" })
-    // means function call [() =>]followed by passing product as argument [JSON obj]
+  };
+
+  handleDecrement = () => {
+    this.setState({ count: this.state.count - 1 });
   };
 }
 
